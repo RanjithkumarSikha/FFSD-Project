@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>getElementById Example</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            var usernameInput = document.getElementById("username");
+            var passwordInput = document.getElementById("password");
+
+            var usernameValue = usernameInput.value;
+            var passwordValue = passwordInput.value;
+
+            // Perform form submission/validation logic
+            console.log("Username:", usernameValue);
+            console.log("Password:", passwordValue);
+        } 
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name Field Example</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <label for="name">Name:</label>
+
+    <label for="age">Age:</label>
+    
+    <label for="roll number">rollnumber:</label>
+    <input type="text" id="name" oninput="validateAndConvertToUpper(this)">
+    <div id="error-msg" style="color: rgb(107, 211, 33);"></div>
+</body>
+</html>

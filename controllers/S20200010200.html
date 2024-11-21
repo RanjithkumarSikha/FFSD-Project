@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Form</title>
+  <style>
+    /* You can add your CSS styling here if needed */
+  </style>
+</head>
+<body>
+  <form id="userForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" maxlength="50" required>
+    
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="18" max="65" required>
+    
+    <label for="rollNumber">Roll Number:</label>
+    <input type="text" id="rollNumber" name="rollNumber" maxlength="20" required>
+
+         <label for="submit">submit:</label>
+        <input type="submit" id="submit" name="submit" maxlength="5" required>
+  </form>
+
+  <script>
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    const rollNumberInput = document.getElementById('rollNumber');
+
+    nameInput.addEventListener('blur', () => {
+      nameInput.value = nameInput.value.toUpperCase();
+    });
+
+    ageInput.addEventListener('input', () => {
+      ageInput.setCustomValidity('');
+      if (ageInput.validity.valueMissing) {
+        ageInput.setCustomValidity('Age is required');
+      } else if (ageInput.validity.rangeUnderflow) {
+        ageInput.setCustomValidity('Minimum age is 18');
+      } else if (ageInput.validity.rangeOverflow) {
+        ageInput.setCustomValidity('Maximum age is 65');
+      }
+    });
+
+    rollNumberInput.addEventListener('input', () => {
+      rollNumberInput.setCustomValidity('');
+      const alphanumericPattern = /^[a-zA-Z0-9]*$/;
+      if (!alphanumericPattern.test(rollNumberInput.value)) {
+        rollNumberInput.setCustomValidity('Only alphanumeric characters are allowed');
+      }
+    });
+
+    rollNumberInput.addEventListener('blur', () => {
+      rollNumberInput.value = rollNumberInput.value.toUpperCase();
+    });
+  </script>
+</body>
+</html>
